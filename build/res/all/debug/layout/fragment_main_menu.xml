@@ -1,0 +1,30 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matches of today"
+        android:id="@+id/mainmenu_matchesButton"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:id="@+id/mainmenu_settingsButton"
+        android:layout_gravity="center_horizontal" />
+
+    <Gallery
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainmenu_teamGallery"
+        android:layout_gravity="center_horizontal"
+        android:spacing="20dp"/>
+
+
+</LinearLayout>
+
+<!-- From: file:/C:/Git%20repos/BettingHelp/app/src/main/res/layout/fragment_main_menu.xml -->

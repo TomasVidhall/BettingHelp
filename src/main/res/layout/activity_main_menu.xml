@@ -7,6 +7,8 @@
     <fragment
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:name="com.tomasvidhall.bettinghelp.fragments.MainMenuFragment"
+        class ="com.tomasvidhall.bettinghelp.fragments.MainMenuFragment"
         android:id="@+id/fragment" />
+
+
 </FrameLayout>

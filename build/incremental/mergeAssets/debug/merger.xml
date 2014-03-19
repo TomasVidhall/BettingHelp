@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="ComAndroidSupportAppcompatV71901.aar" >
+        <source path="C:\Git repos\BettingHelp\app\build\exploded-bundles\ComAndroidSupportAppcompatV71901.aar\assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="C:\Git repos\BettingHelp\app\src\main\assets" >
+            <file
+                name="csv/Championship/CH1213.csv"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\Championship\CH1213.csv" />
+            <file
+                name="csv/Championship/CH1314.csv"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\Championship\CH1314.csv" />
+            <file
+                name="csv/key.txt"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\key.txt" />
+            <file
+                name="csv/PremierLeague/PL1213.csv"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\PremierLeague\PL1213.csv" />
+            <file
+                name="csv/PremierLeague/PL1314.csv"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\PremierLeague\PL1314.csv" />
+            <file
+                name="csv/PremierLeague/PL1011.csv"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\PremierLeague\PL1011.csv" />
+            <file
+                name="csv/PremierLeague/PL1112.csv"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\PremierLeague\PL1112.csv" />
+            <file
+                name="csv/PremierLeague/PL0809.csv"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\PremierLeague\PL0809.csv" />
+            <file
+                name="csv/PremierLeague/PL0910.csv"
+                path="C:\Git repos\BettingHelp\app\src\main\assets\csv\PremierLeague\PL0910.csv" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\Git repos\BettingHelp\app\src\debug\assets" />
+    </dataSet>
+
+</merger>

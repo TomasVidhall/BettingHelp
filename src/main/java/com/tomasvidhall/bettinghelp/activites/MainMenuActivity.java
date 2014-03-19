@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tomasvidhall.bettinghelp.database.DataBasePopulator;
 import com.tomasvidhall.bettinghelp.database.DatabaseManager;
 import com.tomasvidhall.bettinghelp.models.Match;
 import com.tomasvidhall.bettinghelp.models.Team;
@@ -18,12 +19,10 @@ public class MainMenuActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
         DatabaseManager.init(this);
-        List<Match> matches = DatabaseManager.getInstance().readCsvMatchFiles(this);
-        for(Match m: matches){
-            DatabaseManager.getInstance().addNewMatch(m);
-        }
+        setContentView(R.layout.activity_main_menu);
+
+       // DataBasePopulator.populateDatabaseWithMatches(this);
 
 
         if (savedInstanceState == null) {

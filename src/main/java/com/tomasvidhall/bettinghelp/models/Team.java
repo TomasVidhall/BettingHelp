@@ -28,7 +28,7 @@ public class Team {
 
     public void save() {
 
-        if(!DatabaseManager.getInstance().getTeam(this.name)){
+        if(DatabaseManager.getInstance().getTeam(this.name) == null){
             DatabaseManager.getInstance().addNewTeam(this);
         }
     }

@@ -2,6 +2,7 @@ package com.tomasvidhall.bettinghelp.database;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.stmt.Where;
@@ -16,6 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -90,6 +92,7 @@ public class DatabaseManager {
 
     public boolean addNewMatch(Match m) {
         try {
+
             helper.getMatchDao().create(m);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -116,7 +119,8 @@ public class DatabaseManager {
     public List<Team> getAllTeams() {
         List<Team> teams = null;
         try {
-            teams = helper.getTeamDao().queryForAll();
+            teams = helper.getTeamDao().queryBuilder().groupBy("name").query();
+           // teams = helper.getTeamDao().queryForAll();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -133,55 +137,7 @@ public class DatabaseManager {
         return competitions;
     }
 
-
-
-    public List<Match> readCsvMatchFiles(Context c) {
-        List<Match> matches = null;
-        AssetManager am = c.getAssets();
-        InputStream path = null;
-        try {
-            path = am.open("csv/PremierLeague/PL1314.csv");
-            matches = readCsvMatchFile(path);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        return matches;
-    }
-
-    private List<Match> readCsvMatchFile(InputStream i) {
-        Match m = null;
-        List<Match> matches = new ArrayList<>();
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(i));
-            //SKIP HEADERS
-            br.readLine();
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] split = line.split(",");
-                String competition = split[0];
-                String date = split[1];
-                String homeTeam = split[2];
-                String awayTeam = split[3];
-                String result = split[4] + " - " + split[5];
-                String winner = split[6];
-
-                m = new Match(result, awayTeam, homeTeam, competition, date, winner);
-                matches.add(m);
-            }
-            br.close();
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return matches;
-    }
-
-    public boolean getTeam(String name) {
+    public Team getTeam(String name) {
         List<Team> ts = null;
         try {
             ts = helper.getTeamDao().queryForEq("name", name);
@@ -190,9 +146,9 @@ public class DatabaseManager {
             e.printStackTrace();
         }
         if (ts.size() > 0) {
-            return true;
+            return ts.get(0);
         } else {
-            return false;
+            return null;
 
         }
     }
@@ -226,4 +182,9 @@ public class DatabaseManager {
     public List<Match> getAllMatchesWhereTeamWon(Team t){
         return getAllMatchesFromTeam(t.getName());
     }
+
+
+
+
+
 }
