@@ -5,26 +5,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Gallery;
 import android.widget.TextView;
 
 import com.tomasvidhall.bettinghelp.activites.R;
+import com.tomasvidhall.bettinghelp.models.Competition;
 import com.tomasvidhall.bettinghelp.models.Team;
 
 import java.util.List;
 
 /**
- * Created by Tomas on 2014-03-17.
+ * Created by Administratör on 2014-03-19.
  */
-public class CarouselTeamAdapter extends ArrayAdapter<Team> {
-
-    private List<Team> teams;
+public class CarouselCompetitionAdapter extends ArrayAdapter<Competition> {
+    private List<Competition> competitions;
     private Context mContext;
 
-    public CarouselTeamAdapter(Context context, int resource, List<Team> objects) {
+    public CarouselCompetitionAdapter(Context context, int resource, List<Competition> objects) {
         super(context, resource, objects);
         this.mContext = context;
-        this.teams = objects;
+        this.competitions = objects;
 
     }
 
@@ -34,12 +33,12 @@ public class CarouselTeamAdapter extends ArrayAdapter<Team> {
     }
 
     @Override
-    public Team getItem(int position) {
-        if(position < teams.size()){
-        return teams.get(position);
+    public Competition getItem(int position) {
+        if(position < competitions.size()){
+            return competitions.get(position);
         }
         else{
-            return teams.get(position % teams.size());
+            return competitions.get(position % competitions.size());
         }
     }
 
@@ -56,3 +55,5 @@ public class CarouselTeamAdapter extends ArrayAdapter<Team> {
         return convertView;
     }
 }
+
+

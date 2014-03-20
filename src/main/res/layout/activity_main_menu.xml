@@ -7,7 +7,7 @@
     <fragment
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        class ="com.tomasvidhall.bettinghelp.fragments.MainMenuFragment"
+        class ="com.tomasvidhall.bettinghelp.MainMenu.MainMenuFragment"
         android:id="@+id/fragment" />
 
 

@@ -20,6 +20,13 @@
     <Gallery
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/mainmenu_competitionGallery"
+        android:layout_gravity="center_horizontal"
+        android:spacing="20dp"/>
+
+    <Gallery
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/mainmenu_teamGallery"
         android:layout_gravity="center_horizontal"
         android:spacing="20dp"/>
